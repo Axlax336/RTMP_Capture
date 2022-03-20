@@ -94,7 +94,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>PotPlayer</string>
+    <string>外部播放</string>
    </property>
   </widget>
   <widget class="QListWidget" name="listWidget">
@@ -143,7 +143,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>播放</string>
+    <string>内嵌播放</string>
    </property>
   </widget>
  </widget>

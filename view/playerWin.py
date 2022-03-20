@@ -1,5 +1,4 @@
 from PyQt5.QtWidgets import QMainWindow
-from vlc import EventType
 
 from core.vlc import Player
 from view.QtDesigner.player import Ui_Form
@@ -15,7 +14,7 @@ class PlayerWin(QMainWindow, Ui_Form):
         self.player.set_window(self.frame.winId())
         self.volumeSlider.valueChanged.connect(self.volumeChange)
         self.volumeSlider.setValue(25)
-        self.player.add_callback(EventType.MediaPlayerTimeChanged, self.timeUpdate)
+        self.player.add_listener_timechange(self.timeUpdate)
 
     def play(self, rtmp_url):
         self.player.play(rtmp_url)

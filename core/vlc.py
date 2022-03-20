@@ -1,11 +1,4 @@
-import os
 import platform
-import sys
-
-# 设置VLC库路径，需在import vlc之前
-current_path = os.path.dirname(os.path.realpath(sys.argv[0]))
-os.environ['PYTHON_VLC_MODULE_PATH'] = os.path.join(current_path, "vlc-3.0.16")
-
 import vlc
 
 
@@ -112,8 +105,8 @@ class Player:
             self.media.set_xwindow(wm_id)
 
     # 注册监听器
-    def add_callback(self, event_type, callback):
-        self.media.event_manager().event_attach(event_type, callback)
+    def add_listener_timechange(self, callback):
+        self.media.event_manager().event_attach(vlc.EventType.MediaPlayerTimeChanged, callback)
 
     # 移除监听器
     def remove_callback(self, event_type, callback):
